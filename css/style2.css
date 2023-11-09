@@ -1,0 +1,66 @@
+.popup, .popup2, .popup3{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.popup-content, .popup-content2, .popup-content3{
+
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 60%;
+  opacity: 0.92;
+}
+.popup-content input, .popup-content2 input ,.popup-content3 input{
+	margin: 20px auto;
+	display: block;
+	width: 40%;
+	padding: 8px;
+	border: 1px solid black;
+}
+/*.close{
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	background: #fff;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, .75);
+	cursor: pointer;
+}*/
+.close, .close2, .close3{
+	position:absolute;
+	top: 230px;
+	right: 330px;
+	height: 20px;
+	width: 20px;
+}
+button{
+    width: 200px;
+    height: 300px;
+    margin-left: 150px;
+  }
+  .ri-close-circle-line{
+    font-size: 150px;
+  }
+
+  .ri-checkbox-circle-line{
+    font-size: 150px;
+  }
+  .ri-add-circle-line{
+    font-size: 150px;
+  }
+
+  .ex{
+  	font-size: 50px;
+  }

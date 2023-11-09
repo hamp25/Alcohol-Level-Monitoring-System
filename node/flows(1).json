@@ -1,0 +1,100 @@
+[
+    {
+        "id": "4edffa3854a174df",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0e05f7046a610419",
+        "type": "serial in",
+        "z": "4edffa3854a174df",
+        "name": "",
+        "serial": "bf50048c6c9fbb9f",
+        "x": 270,
+        "y": 120,
+        "wires": [
+            [
+                "15c0c643d2654428"
+            ]
+        ]
+    },
+    {
+        "id": "15c0c643d2654428",
+        "type": "json",
+        "z": "4edffa3854a174df",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "7429377046bcda41"
+            ]
+        ]
+    },
+    {
+        "id": "7429377046bcda41",
+        "type": "function",
+        "z": "4edffa3854a174df",
+        "name": "function 1",
+        "func": "var value = JSON.parse(JSON.stringify(msg.payload)); \nvalue = msg; \n var sensor1 = msg.payload.BAC; \n//  var sensor2 = msg.payload.PPM; \n//   var sensor3 = msg.payload.Li; \nmsg.payload = [sensor1];\nmsg.topic = 'INSERT INTO arduino_tbl(BAC) VALUES (?);'; \n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "956dfd2b43a9dae3"
+            ]
+        ]
+    },
+    {
+        "id": "956dfd2b43a9dae3",
+        "type": "mysql",
+        "z": "4edffa3854a174df",
+        "mydb": "b6245462f8a7244e",
+        "name": "",
+        "x": 710,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf50048c6c9fbb9f",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "b6245462f8a7244e",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "ams",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]
